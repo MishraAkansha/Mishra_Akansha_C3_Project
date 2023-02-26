@@ -62,7 +62,15 @@ public class Restaurant {
     }
 
     public int calculateTotalCostOfSelectedItems(List<String> selectedItemsNames) {
-
+        int totalOrderCost = 0;
+        if (selectedItemsNames.isEmpty()) {
+            return totalOrderCost;
+        } else {
+            for (String itemName : selectedItemsNames) {
+                totalOrderCost += findItemByName(itemName).getPrice();
+            }
+        }
+        return totalOrderCost;
     }
 
 }

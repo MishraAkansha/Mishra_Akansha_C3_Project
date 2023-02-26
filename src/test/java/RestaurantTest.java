@@ -70,6 +70,9 @@ class RestaurantTest {
     @Test
     public void total_cost_should_be_sum_of_each_item_price_selected_in_menu() {
         List<String> selectedMenuItemNames = new ArrayList<>();
-        assertEquals(sum, restaurant.calculateTotalCostOfSelectedItems(selectedMenuItemNames));
+        selectedMenuItemNames.add("Veg Curry");
+        selectedMenuItemNames.add("Jira Rice");
+        selectedMenuItemNames.add("Sweet corn soup");
+        assertEquals(419, restaurant.calculateTotalCostOfSelectedItems(selectedMenuItemNames));
     }
 }
