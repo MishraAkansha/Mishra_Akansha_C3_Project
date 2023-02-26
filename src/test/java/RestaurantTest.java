@@ -17,6 +17,8 @@ class RestaurantTest {
         restaurant =Mockito.spy(new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime));
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Veg Curry", 200);
+        restaurant.addToMenu("Jira Rice", 100);
     }
 
     //REFACTOR ALL THE REPEATED LINES OF CODE
@@ -62,12 +64,12 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     @Test
     public void total_cost_should_be_zero_if_no_item_was_selected_in_menu() {
-        List selectedMenuItems = new ArrayList<Item>();
-        assertEquals(sum, restaurant.calculateTotalCostOfSelectedItems(selectedMenuItems));
+        List<String> selectedMenuItemNames = new ArrayList<>();
+        assertEquals(0, restaurant.calculateTotalCostOfSelectedItems(selectedMenuItemNames));
     }
     @Test
     public void total_cost_should_be_sum_of_each_item_price_selected_in_menu() {
-        List selectedMenuItems = new ArrayList<Item>();
-        assertEquals(sum, restaurant.calculateTotalCostOfSelectedItems(selectedMenuItems));
+        List<String> selectedMenuItemNames = new ArrayList<>();
+        assertEquals(sum, restaurant.calculateTotalCostOfSelectedItems(selectedMenuItemNames));
     }
 }
